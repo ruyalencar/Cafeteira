@@ -6,7 +6,7 @@
     <title>Cafeteira</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .lista-container {
+            .lista-container {
             display: flex;
             justify-content: space-between;
         }
@@ -15,11 +15,14 @@
             margin: 50px;
         }
     </style>
+    <?php 
+    require_once 'cafeteira.php';
+    ?>
     <script>
     // Espera 15 segundos (15000 milissegundos) para mostrar a próxima mensagem
     setTimeout(function() {
-    document.getElementById("mensagem").innerText = "15 segundos depois: aqui está outra mensagem!";
-    }, 15000);
+    document.getElementById("mensagem").innerText = <?print "hello";?>;
+    }, 5000);
 </script>
 </head>
 <body>
@@ -50,7 +53,7 @@
     <input type="submit" value="Fazer">
     </form>
     <?php 
-    require_once 'cafeteira.php';
+    
     $n1 = $_GET['n1'] ?? null;
     $n2 = $_GET['n2'] ?? null;
 
@@ -63,14 +66,17 @@
             $fazer1 ->aguarde1($fazer1);
             break;
         case 1:
+            print "<p>Aguarde um pouco!</p>";   
             $fazer1 ->cafe = "Cafe";
             $fazer1->aguarde1($fazer1);
             break;
         case 2:
+            print "<p>Aguarde um pouco!</p>";
             $fazer1 ->cha = "Chá";
             $fazer1->aguarde1($fazer1);
             break;
         case 3:
+            print "<p>Aguarde um pouco!</p>";
             $fazer1 ->chocolate = "Chocolate";
             $fazer1->aguarde1($fazer1);
 
@@ -82,14 +88,17 @@
             $fazer2 ->aguarde2($fazer2);
             break;
         case 1:
+            print "<p>Aguarde um pouco!</p>";
             $fazer2 ->suco = "Suco";
             $fazer2->aguarde2($fazer2);
             break;
         case 2:
+            print "<p>Aguarde um pouco!</p>";
             $fazer2 ->refrigerante = "Refrigerente";
             $fazer2->aguarde2($fazer2);
             break;
         case 3:
+            print "<p>Aguarde um pouco!</p>";
             $fazer2 ->agua = "Agua";
             $fazer2->aguarde2($fazer2);
             break;
@@ -98,9 +107,7 @@
    
     </main>
     <section>
-    <p><?php print "$copo1";?></p>
     <p id="mensagem"></p>
-
     </section>
 </body>
 </html>

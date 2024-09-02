@@ -14,7 +14,7 @@ class Cafeteira{
 
     function mostrarCafe() {
         if ($this->cafe !== null) {
-            echo "<p>O seu " . $this->cafe . " está pronto.😊</p>";
+            print "<p>O seu " . $this->cafe . " está pronto.😊</p>";
         } 
     }
     function mostrarCha() {
@@ -42,14 +42,18 @@ class Cafeteira{
             echo "<p>A sua " . $this->agua . " está pronta.😊</p>";
         } 
     }
+    function nada(){
+        if ($this->nada == null){
+            print "";
+        }
+    }
 
     function aguarde1($fazer1){
         if($fazer1 != null){
-            print "<p>Aguarde um pouco!</p>";
+            $this->nada();
             $this->mostrarCafe();
             $this->mostrarCha();
             $this->mostrarChocolate();
-            
         }else{
             print "<p>Volte sempre😊</p>";
            
@@ -57,7 +61,7 @@ class Cafeteira{
     }
     function aguarde2($fazer2){
         if($fazer2 !=null ){
-            print "<p>Aguarde um pouco!</p>";
+            $this->nada();
             $this->mostrarSuco();
             $this->mostrarRefri();
             $this->mostrarAgua();
