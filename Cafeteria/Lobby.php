@@ -16,14 +16,9 @@
         }
     </style>
     <?php 
-    require_once 'cafeteira.php';
+    require_once 'Cafeteira.php';
+    require_once 'preparo.php';
     ?>
-    <script>
-    // Espera 15 segundos (15000 milissegundos) para mostrar a próxima mensagem
-    setTimeout(function() {
-    document.getElementById("mensagem").innerText = <?print "hello";?>;
-    }, 5000);
-</script>
 </head>
 <body>
     <main><h1>Informe o que gostaria abaixo⬇️</h1>
@@ -52,62 +47,48 @@
 
     <input type="submit" value="Fazer">
     </form>
+    <pre>
     <?php 
-    
     $n1 = $_GET['n1'] ?? null;
     $n2 = $_GET['n2'] ?? null;
-
-    $fazer1 = new Cafeteira;
-    $fazer2 = new Cafeteira;
     
-    switch ($n1){
-        case null:
-            $fazer1 ->nada = null;
-            $fazer1 ->aguarde1($fazer1);
+    switch($n1){
+        case 0:
+            aguarde($n1);
             break;
+        
         case 1:
-            print "<p>Aguarde um pouco!</p>";   
-            $fazer1 ->cafe = "Cafe";
-            $fazer1->aguarde1($fazer1);
+            aguarde($n1);
             break;
-        case 2:
-            print "<p>Aguarde um pouco!</p>";
-            $fazer1 ->cha = "Chá";
-            $fazer1->aguarde1($fazer1);
-            break;
-        case 3:
-            print "<p>Aguarde um pouco!</p>";
-            $fazer1 ->chocolate = "Chocolate";
-            $fazer1->aguarde1($fazer1);
 
-            break;
-    };
-    switch ($n2){
-        case null:
-            $fazer2 ->nada = null;
-            $fazer2 ->aguarde2($fazer2);
-            break;
-        case 1:
-            print "<p>Aguarde um pouco!</p>";
-            $fazer2 ->suco = "Suco";
-            $fazer2->aguarde2($fazer2);
-            break;
         case 2:
-            print "<p>Aguarde um pouco!</p>";
-            $fazer2 ->refrigerante = "Refrigerente";
-            $fazer2->aguarde2($fazer2);
+            aguarde($n1);
             break;
+
         case 3:
-            print "<p>Aguarde um pouco!</p>";
-            $fazer2 ->agua = "Agua";
-            $fazer2->aguarde2($fazer2);
+            aguarde($n1);
+            break;            
+    }
+    switch($n2){
+        case 0:
+            aguarde2($n2);
             break;
-    };
+
+        case 1:
+            aguarde2($n2);
+            break;
+        
+        case 2:
+            aguarde2($n2);
+            break;
+    
+        case 3:
+            aguarde2($n2);
+            break;
+    }
     ?>
+    </pre>
    
     </main>
-    <section>
-    <p id="mensagem"></p>
-    </section>
 </body>
 </html>
